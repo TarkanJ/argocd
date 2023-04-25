@@ -23,3 +23,8 @@ spec:
     server: https://kubernetes.default.svc
     namespace: first-argo-app
 ```
+
+```
+Execute the command:
+kubectl apply -n argocd -f appka.yaml
+```
