@@ -1,2 +1,2 @@
 # argocd
-First testing for ArgoCD
+First testing APP for ArgoCD
