@@ -1,28 +1,20 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  name: martino-nginx-deployment
-  namespace: 	martino-app
-  labels:
-    app: httpbin
+  name: first-argo-app
+  namespace: argocd
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: httpbin
-  template:
-    metadata:
-      labels:
-        app: httpbin
-    spec:
-      containers:
-      - name: httpbin
-        image: kennethreitz/httpbin:latest
-        ports:
-        - containerPort: 80
-        resources:
-          limits:
-            cpu: "1"
-            memory: "512M"
-          requests:
-            cpu: "0.1"
+  project: martino-project
+  source:
+    repoURL: https://github.com/
+    targetRevision: HEAD
+    path: argo/first-argo-app
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: first-argo-app
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
