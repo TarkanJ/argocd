@@ -18,7 +18,7 @@ spec:
   source:
     repoURL: https://github.com/TarkanJ/argocd.git
     targetRevision: HEAD
-    path: argo/first-argo-app
+    path: argocd/first-argo-app
   destination:
     server: https://kubernetes.default.svc
     namespace: first-argo-app
