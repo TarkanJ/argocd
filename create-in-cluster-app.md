@@ -1,9 +1,9 @@
 CLI
 
-argocd app create --name test \
---repo https://github.com/ \
+argocd app create --name first-argo-app \
+--repo https://github.com/TarkanJ/argocd \
 --dest-server https://kubernetes.default.svc \
---dest-namespace martino-project --path kubernetes
+--dest-namespace first-argo-app  --path kubernetes
 
 YAML
 
@@ -11,13 +11,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: test
-  namespace: martino-project
+  namespace: first-argo-app
 spec:
-  project: default
+  project: martino-project
   source:
     repoURL: https://github.com/TarkanJ/argocd.git
     targetRevision: HEAD
-    path: argo/example-app
+    path: argo/first-argo-app
   destination:
     server: https://kubernetes.default.svc
-    namespace: 
+    namespace: first-argo-app
