@@ -1,28 +1,12 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: martino-nginx-deployment
-  namespace: 	martino-app
-  labels:
-    app: httpbin
+  name: martino-service
+  namespace: martino-app
 spec:
-  replicas: 2
   selector:
-    matchLabels:
-      app: httpbin
-  template:
-    metadata:
-      labels:
-        app: httpbin
-    spec:
-      containers:
-      - name: httpbin
-        image: kennethreitz/httpbin:latest
-        ports:
-        - containerPort: 80
-        resources:
-          limits:
-            cpu: "1"
-            memory: "512M"
-          requests:
-            cpu: "0.1"
+    app: httpbin
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
