@@ -6,7 +6,7 @@ metadata:
 spec:
   project: martino-project
   source:
-    repoURL: https://github.com/
+    repoURL: https://github.com/TarkanJ/argocd.git
     targetRevision: HEAD
     path: argo/first-argo-app
     directory:
