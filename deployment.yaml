@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: martino-nginx-deployment
+  name: argo-deployment
   namespace: 	martino-app
   labels:
     app: httpbin
