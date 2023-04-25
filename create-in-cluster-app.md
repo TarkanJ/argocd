@@ -1,12 +1,13 @@
 CLI
-
+```
 argocd app create --name first-argo-app \
 --repo https://github.com/TarkanJ/argocd \
 --dest-server https://kubernetes.default.svc \
 --dest-namespace first-argo-app  --path kubernetes
+```
 
 YAML
-
+```
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -21,3 +22,4 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: first-argo-app
+```
