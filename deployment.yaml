@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: argo-deployment
-  namespace: argocd
+  namespace: first-argo-app
   labels:
     app: httpbin
 spec:
